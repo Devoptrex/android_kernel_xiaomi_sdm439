@@ -1,0 +1,19 @@
+name: Build Redmi 8 NetHunter Kernel
+on:
+  workflow_dispatch:
+
+jobs:
+  build-kernel:
+    name: Build Kernel
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Build
+        uses: dabao1955/kernel_build_action@main
+        with:
+          kernel-url: https://github.com/Neternels/android_kernel_xiaomi_sdm439
+          kernel-branch: a12/main
+          config: vendor/sdm439-perf_defconfig
+          arch: arm64
+          aosp-clang: true
+          anykernel3: true
+
